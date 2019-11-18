@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191118195729) do
+ActiveRecord::Schema.define(version: 20191118200522) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20191118195729) do
 
   create_table "preferences", force: :cascade do |t|
     t.boolean "allow_create_artists"
+    t.boolean "allow_create_songs"
   end
 
   create_table "songs", force: :cascade do |t|
