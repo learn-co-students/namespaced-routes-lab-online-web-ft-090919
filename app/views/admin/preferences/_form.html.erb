@@ -1,0 +1,9 @@
+<%= form_for [:admin, @preference] do |f| %>
+    <%= f.label "Allow creation of artists: " %>
+    <%= f.check_box :allow_create_artists %>
+    <br>
+    <%= f.label "Allow creaton of songs: "%>
+    <%= f.check_box :allow_create_songs %>
+    <br>
+    <%= f.submit %>
+<% end %>
