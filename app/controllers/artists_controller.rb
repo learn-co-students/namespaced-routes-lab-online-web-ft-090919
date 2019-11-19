@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  before_action :check_artist_preferences
+
   def index
     @artists = Artist.all
   end
@@ -48,5 +50,11 @@ class ArtistsController < ApplicationController
 
   def artist_params
     params.require(:artist).permit(:name)
+  end
+
+  def check_artist_preferences
+    if Preference.any?
+      Preference.last.allow_create_artists ? nil : (redirect_to artists_path, alert: "Not allowed to create songs!")
+    end
   end
 end
