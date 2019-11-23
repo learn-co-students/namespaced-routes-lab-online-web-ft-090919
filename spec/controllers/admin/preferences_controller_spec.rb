@@ -10,11 +10,11 @@ RSpec.describe Admin::PreferencesController, type: :controller do
     expect(response).to be_ok
   end
 
-  it "has link to toggle setting for creating artists" do
+  it "has a way to toggle artist creation" do
     
     get :toggle_artists
     expect(response).to redirect_to admin_preferences_path
-    #expect(@p.allow_create_artists) to_eq true
+    expect(Preference.last.allow_create_artists).to eq true
     
   end
 
